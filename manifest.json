@@ -1,0 +1,37 @@
+{
+  "manifest_version": 3,
+  "name": "EasyEmail",
+  "version": "1.0",
+  "description": "A side panel extension for Gmail that provides enhanced email functionality",
+  "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAsDxJ2JN8o7sTrAGeOOtAQYrINGNbBUSVZkgwJPWrApXHJ84h2sgQhSlsslO0Hs4SC+jdPm3b3gH/7SpEtOb0+poBlAqv69jNGOOR1/pp9EEiqSGx95V6gFYS5jQJtt0SiJYmjndu0eBFiHCTQtzI8LYrvmQctfQhdo43+3RUw8UbHqeSAW0dQ/44g2QVSxPvnKmSuIrWs6nUjOpJvth1icpbQ+qIddS+8GAv8G3Y4ztTnaIsnEud+rZWxEcyUAJy3d5jG0h5/T9bC92tWAGOsbXYyONpMCqRLrGrt5J7Mdr9rh085TSdhVaA09jIsG4j1jS422kt+5I39Wp9rQimfwIDAQAB",
+  "permissions": [
+    "identity",
+    "sidePanel",
+    "storage"
+  ],
+  "host_permissions": [
+    "https://mail.google.com/*"
+  ],
+  "side_panel": {
+    "default_path": "sidepanel.html"
+  },
+  "oauth2": {
+    "client_id": "1065876985144-23urplbt4j0550mc87gvt5li8opn3cgd.apps.googleusercontent.com",
+    "scopes": [
+      "https://www.googleapis.com/auth/gmail.readonly",
+      "https://www.googleapis.com/auth/gmail.modify",
+      "openid",
+      "email",
+      "profile"
+    ]
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://mail.google.com/*"],
+      "js": ["content.js"]
+    }
+  ]
+} 
