@@ -138,4 +138,9 @@ chrome.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
     if (changeInfo.status === 'complete' && tab.url?.includes('mail.google.com')) {
         chrome.sidePanel.open({ tabId: tabId });
     }
+});
+
+// Listen for extension icon click
+chrome.action.onClicked.addListener((tab) => {
+    chrome.sidePanel.open({ tabId: tab.id });
 }); 

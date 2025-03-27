@@ -7,11 +7,15 @@
   "permissions": [
     "identity",
     "sidePanel",
-    "storage"
+    "storage",
+    "tabs"
   ],
   "host_permissions": [
     "https://mail.google.com/*"
   ],
+  "action": {
+    "default_title": "EasyEmail"
+  },
   "side_panel": {
     "default_path": "sidepanel.html"
   },
