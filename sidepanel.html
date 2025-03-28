@@ -6,11 +6,11 @@
   <style>
     .page { display: none; padding: 16px; }
     .account-card {
-      background: white;
-      border: 1px solid #ddd;
-      border-radius: 8px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      border: none;
+      border-radius: 0;
+      box-shadow: none;
       padding: 16px;
+      align-items: center;
       text-align: center;
       margin-top: 20px;
     }
@@ -33,12 +33,7 @@
       <!-- Home Page -->
       <div id="page-home" class="page">
         <div class="profile-section">
-          <img id="profilePicture" class="profile-picture" src="" style="display: none;">
-          <div class="profile-info">
-            <div id="userName" class="user-name"></div>
-            <div id="userEmail" class="user-email"></div>
-            <button id="loginButton" class="login-button">Sign in with Google</button>
-          </div>
+          <button id="loginButton" class="login-button">Sign in with Google</button>
         </div>
       </div>
 
@@ -65,18 +60,13 @@
           <img id="accountPic" class="profile-picture" />
           <div id="accountName" class="user-name"></div>
           <div id="accountEmail" class="user-email"></div>
+          <button id="signOutBtn" class="login-button" style="background-color: #d93025; margin-top: 10px;">Sign Out</button>
         </div>
       </div>
     </div>
   </div>
 
-  <script>
-    function switchPage(pageId) {
-      document.querySelectorAll('.page').forEach(p => p.style.display = 'none');
-      const page = document.getElementById(pageId);
-      if (page) page.style.display = 'block';
-    }
-  </script>
   <script src="sidepanel.js"></script>
+
 </body>
 </html>

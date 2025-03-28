@@ -9,6 +9,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const accountPic = document.getElementById('accountPic');
     const accountName = document.getElementById('accountName');
     const accountEmail = document.getElementById('accountEmail');
+    const signOutBtn = document.getElementById('signOutBtn');
   
     chrome.storage.local.get(['userProfile', 'accessToken'], function (result) {
       if (result.userProfile && result.accessToken) {
@@ -49,44 +50,35 @@ document.addEventListener('DOMContentLoaded', function () {
       });
     });
   
-    const signOutBtn = document.createElement('button');
-    signOutBtn.textContent = 'Sign Out';
-    signOutBtn.className = 'login-button';
-    signOutBtn.style.backgroundColor = '#d93025';
-    signOutBtn.style.display = 'none';
-    signOutBtn.style.marginTop = '10px';
-    userEmail.parentNode.appendChild(signOutBtn);
-  
     signOutBtn.addEventListener('click', function () {
       chrome.runtime.sendMessage({ action: 'logout' }, function (response) {
         if (response.success) {
-          profilePicture.style.display = 'none';
-          userName.textContent = '';
-          userEmail.textContent = '';
-          loginButton.style.display = 'block';
-          signOutBtn.style.display = 'none';
-          emailList.innerHTML = '<div class="loading">Please sign in to view your emails</div>';
-          emailList.style.display = 'none';
-          successScreen.style.display = 'block';
-          switchPage('page-home');
-  
-          const sidenav = document.getElementById('easyemail-sidenav');
-          if (sidenav) sidenav.remove();
+          resetUI();
         }
       });
     });
   
     function updateUIWithUserProfile(profile) {
-      profilePicture.src = profile.picture;
-      profilePicture.style.display = 'block';
-      userName.textContent = profile.name || 'Google User';
-      userEmail.textContent = profile.email || '';
-      loginButton.style.display = 'none';
-      signOutBtn.style.display = 'block';
-  
+      // Update account page
       accountPic.src = profile.picture;
       accountName.textContent = profile.name || 'Google User';
       accountEmail.textContent = profile.email || '';
+    }
+  
+    function resetUI() {
+      if (profilePicture) profilePicture.style.display = 'none';
+      if (userName) userName.textContent = '';
+      if (userEmail) userEmail.textContent = '';
+      if (loginButton) loginButton.style.display = 'block';
+      if (signOutBtn) signOutBtn.style.display = 'none';
+  
+      emailList.innerHTML = '<div class="loading">Please sign in to view your emails</div>';
+      emailList.style.display = 'none';
+      successScreen.style.display = 'block';
+      switchPage('page-home');
+  
+      const sidenav = document.getElementById('easyemail-sidenav');
+      if (sidenav) sidenav.remove();
     }
   
     async function fetchEmails(accessToken) {
