@@ -1,6 +1,6 @@
 // Constants for OAuth
 const CLIENT_ID = "1065876985144-23urplbt4j0550mc87gvt5li8opn3cgd.apps.googleusercontent.com";
-const REDIRECT_URI = "https://jnoppbigdgmcenglgmpohbgmgeeekmpc.chromiumapp.org"; //change this later
+const REDIRECT_URI = "https://edlmlnigjpjhmamkbffghdlheeepfgkf.chromiumapp.org"; 
 const RESPONSE_TYPE = "token id_token";
 const SCOPE = "openid email profile https://www.googleapis.com/auth/gmail.readonly https://www.googleapis.com/auth/gmail.modify";
 
