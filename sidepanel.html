@@ -4,13 +4,15 @@
   <title>EasyEmail Side Panel</title>
   <link rel="stylesheet" href="styles/styles.css">
   <style>
-    .page { display: none; padding: 16px; }
+    .page {
+      display: none;
+      padding: 16px;
+    }
     .account-card {
       border: none;
       border-radius: 0;
       box-shadow: none;
       padding: 16px;
-      align-items: center;
       text-align: center;
       margin-top: 20px;
     }
@@ -39,12 +41,7 @@
 
       <!-- Mail Page -->
       <div id="page-mail" class="page">
-        <div id="successScreen" class="success-screen" style="display: block; background-color: #e6f4ea; border-radius: 10px; padding: 12px; margin-bottom: 16px;">
-          <div class="success-icon" style="font-size: 24px; color: green;">✓</div>
-          <div class="success-message" style="color: green; font-weight: 500; margin: 8px 0;">Successfully signed in!</div>
-          <button id="continueButton" class="continue-button">Continue to Emails</button>
-        </div>
-        <div id="emailList" class="email-list" style="display: none;">
+        <div id="emailList" class="email-list">
           <div class="loading">Loading your emails...</div>
         </div>
       </div>
@@ -67,6 +64,5 @@
   </div>
 
   <script src="sidepanel.js"></script>
-
 </body>
 </html>
