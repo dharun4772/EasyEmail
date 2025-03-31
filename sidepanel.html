@@ -1,137 +1,68 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>EasyEmail Side Panel</title>
-    <style>
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            margin: 0;
-            padding: 16px;
-            background-color: #f8f9fa;
-        }
-        .container {
-            max-width: 100%;
-        }
-        .header {
-            display: flex;
-            align-items: center;
-            margin-bottom: 20px;
-        }
-        .profile-section {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            margin-bottom: 20px;
-        }
-        .profile-picture {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-        }
-        .profile-info {
-            display: flex;
-            flex-direction: column;
-        }
-        .user-name {
-            font-weight: 500;
-        }
-        .user-email {
-            font-size: 12px;
-            color: #5f6368;
-        }
-        .login-button {
-            background-color: #1a73e8;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 4px;
-            cursor: pointer;
-            font-size: 14px;
-        }
-        .login-button:hover {
-            background-color: #1557b0;
-        }
-        .email-list {
-            margin-top: 20px;
-        }
-        .email-item {
-            padding: 12px;
-            border: 1px solid #e0e0e0;
-            border-radius: 4px;
-            margin-bottom: 8px;
-            cursor: pointer;
-            transition: background-color 0.2s;
-        }
-        .email-item:hover {
-            background-color: #f1f3f4;
-        }
-        .email-subject {
-            font-weight: 500;
-            margin-bottom: 4px;
-        }
-        .email-sender {
-            color: #5f6368;
-            font-size: 12px;
-        }
-        .loading {
-            text-align: center;
-            padding: 20px;
-            color: #5f6368;
-        }
-        .success-screen {
-            display: none;
-            text-align: center;
-            padding: 20px;
-            background-color: #e6f4ea;
-            border-radius: 8px;
-            margin: 20px 0;
-        }
-        .success-icon {
-            color: #34a853;
-            font-size: 48px;
-            margin-bottom: 16px;
-        }
-        .success-message {
-            color: #1e8e3e;
-            font-size: 16px;
-            margin-bottom: 16px;
-        }
-        .continue-button {
-            background-color: #34a853;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 4px;
-            cursor: pointer;
-            font-size: 14px;
-        }
-        .continue-button:hover {
-            background-color: #2d8a46;
-        }
-    </style>
+  <title>EasyEmail Side Panel</title>
+  <link rel="stylesheet" href="styles/styles.css">
+  <style>
+    .page {
+      display: none;
+      padding: 16px;
+    }
+    .account-card {
+      border: none;
+      border-radius: 0;
+      box-shadow: none;
+      padding: 16px;
+      text-align: center;
+      margin-top: 20px;
+    }
+    .account-card img {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      margin-bottom: 10px;
+    }
+  </style>
 </head>
 <body>
-    <div class="container">
-        <div class="header">
-            <h2>EasyEmail</h2>
-        </div>
+  <!-- SideNav Padding Wrapper -->
+  <div id="main-wrapper">
+    <div class="container" id="main-content">
+      <div class="header">
+        <h2>EasyEmail</h2>
+      </div>
+
+      <!-- Home Page -->
+      <div id="page-home" class="page">
         <div class="profile-section">
-            <img id="profilePicture" class="profile-picture" src="" style="display: none;">
-            <div class="profile-info">
-                <div id="userName" class="user-name"></div>
-                <div id="userEmail" class="user-email"></div>
-                <button id="loginButton" class="login-button">Sign in with Google</button>
-            </div>
+          <button id="loginButton" class="login-button">Sign in with Google</button>
         </div>
-        <div id="successScreen" class="success-screen">
-            <div class="success-icon">✓</div>
-            <div class="success-message">Successfully signed in!</div>
-            <button id="continueButton" class="continue-button">Continue to Emails</button>
-        </div>
+      </div>
+
+      <!-- Mail Page -->
+      <div id="page-mail" class="page">
         <div id="emailList" class="email-list">
-            <div class="loading">Please sign in to view your emails</div>
+          <div class="loading">Loading your emails...</div>
         </div>
+      </div>
+
+      <!-- Settings Page -->
+      <div id="page-settings" class="page">
+        <p>Settings content coming soon...</p>
+      </div>
+
+      <!-- Account Page -->
+      <div id="page-account" class="page">
+        <div class="account-card">
+          <img id="accountPic" class="profile-picture" />
+          <div id="accountName" class="user-name"></div>
+          <div id="accountEmail" class="user-email"></div>
+          <button id="signOutBtn" class="login-button" style="background-color: #d93025; margin-top: 10px;">Sign Out</button>
+        </div>
+      </div>
     </div>
-    <script src="sidepanel.js"></script>
+  </div>
+
+  <script src="sidepanel.js"></script>
 </body>
-</html> 
+</html>
